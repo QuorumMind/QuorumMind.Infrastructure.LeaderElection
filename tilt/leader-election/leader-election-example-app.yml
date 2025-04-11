@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quorum-mind-leader-election-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quorum-mind-leader-election-app
+  template:
+    metadata:
+      labels:
+        app: quorum-mind-leader-election-app
+    spec:
+      containers:
+        - name: app
+          image: quorum-mind.leader-election.example:0.0.8
+          env:
+            - name: ConnectionStrings__Redis
+              value: "redis:6379"
+            - name: ConnectionStrings__Consul
+              value: "http://consul:8500"

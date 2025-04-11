@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.406.20" />
+        <PackageReference Include="Google.Cloud.Firestore" Version="3.10.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.12"/>
+        <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\src\QuorumMind.Infrastructure.LeaderElection.AwsDynamoDB\QuorumMind.Infrastructure.LeaderElection.AwsDynamoDB\QuorumMind.Infrastructure.LeaderElection.AwsDynamoDB.csproj" />
+      <ProjectReference Include="..\src\QuorumMind.Infrastructure.LeaderElection.Consul\QuorumMind.Infrastructure.LeaderElection.Consul.csproj" />
+      <ProjectReference Include="..\src\QuorumMind.Infrastructure.LeaderElection.GCP.Firestore\QuorumMind.Infrastructure.LeaderElection.GCP.Firestore\QuorumMind.Infrastructure.LeaderElection.GCP.Firestore.csproj" />
+      <ProjectReference Include="..\src\QuorumMind.Infrastructure.LeaderElection.Redis\QuorumMind.Infrastructure.LeaderElection.Redis.csproj" />
+      <ProjectReference Include="..\src\QuorumMind.Infrastructure.LeaderElection\QuorumMind.Infrastructure.LeaderElection.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+</Project>

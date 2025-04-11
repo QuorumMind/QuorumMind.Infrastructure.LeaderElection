@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>QuorumMind.Infrastructure.LeaderElection.Redis</PackageId>
+        <Version>1.0.1</Version>
+        <Authors>David Abaev</Authors>
+        <Company>QuorumMind</Company>
+        <Description>Redis-based leader election library for distributed .NET apps</Description>
+        <PackageTags>leader-election redis microservices quorum-mind</PackageTags>
+        <RepositoryUrl>https://github.com/QuorumMind/QuorumMind.Infrastructure.LeaderElection</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\QuorumMind.Infrastructure.LeaderElection\QuorumMind.Infrastructure.LeaderElection.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+      <PackageReference Include="StackExchange.Redis" Version="2.8.31" />
+    </ItemGroup>
+
+</Project>

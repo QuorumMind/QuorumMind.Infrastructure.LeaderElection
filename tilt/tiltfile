@@ -1,0 +1,17 @@
+config.define_string_list("to-run", args=True)
+cfg = config.parse()
+
+trigger_mode(TRIGGER_MODE_MANUAL)
+
+#Dependecy
+def load_dependincies():
+    k8s_yaml(listdir('dependencies'))
+    k8s_yaml(listdir('leader-election'))
+    k8s_resource('redis', port_forwards=6379)
+    k8s_resource('consul', port_forwards=8500)    
+   
+	
+to_run = cfg.get('to-run', ['dependencies'])
+
+if 'dependencies' in to_run:
+    load_dependincies() 

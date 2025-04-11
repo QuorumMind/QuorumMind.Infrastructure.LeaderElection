@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>QuorumMind.Infrastructure.LeaderElection.Consul</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>David Abaev</Authors>
+        <Company>QuorumMind</Company>
+        <Description>Consul-based leader election library for distributed .NET apps</Description>
+        <PackageTags>leader-election consul microservices quorum-mind</PackageTags>
+        <RepositoryUrl>https://github.com/QuorumMind/QuorumMind.Infrastructure.LeaderElection</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+        <HintPath>..\..\..\..\..\..\..\..\..\usr\local\share\dotnet\shared\Microsoft.AspNetCore.App\8.0.12\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Consul" Version="1.7.14.7" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\QuorumMind.Infrastructure.LeaderElection\QuorumMind.Infrastructure.LeaderElection.csproj" />
+    </ItemGroup>
+
+</Project>

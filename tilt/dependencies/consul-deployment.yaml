@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: consul
+spec:
+  ports:
+    - name: http
+      port: 8500
+      targetPort: 8500
+    - name: serf
+      port: 8301
+      targetPort: 8301
+    - name: dns
+      port: 8600
+      targetPort: 8600
+  selector:
+    app: consul
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consul
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consul
+  template:
+    metadata:
+      labels:
+        app: consul
+    spec:
+      containers:
+        - name: consul
+          image: consul:1.15
+          args: ["agent", "-dev", "-client=0.0.0.0"]
+          ports:
+            - containerPort: 8500
+            - containerPort: 8301
+            - containerPort: 8600
+          readinessProbe:
+            httpGet:
+              path: /v1/status/leader
+              port: 8500
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /v1/status/leader
+              port: 8500
+            initialDelaySeconds: 15
+            periodSeconds: 10

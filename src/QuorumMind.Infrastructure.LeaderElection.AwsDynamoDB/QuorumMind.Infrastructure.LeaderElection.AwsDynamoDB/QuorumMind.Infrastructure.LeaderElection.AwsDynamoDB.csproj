@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>QuorumMind.Infrastructure.LeaderElection.AWS.DynamoDB</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>David Abaev</Authors>
+        <Company>QuorumMind</Company>
+        <Description>AWS DynamoDB-based leader election library for distributed .NET apps</Description>
+        <PackageTags>leader-election aws dynamodb microservices quorum-mind</PackageTags>
+        <RepositoryUrl>https://github.com/QuorumMind/QuorumMind.Infrastructure.LeaderElection</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.406.20" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\QuorumMind.Infrastructure.LeaderElection\QuorumMind.Infrastructure.LeaderElection.csproj" />
+    </ItemGroup>
+
+</Project>
